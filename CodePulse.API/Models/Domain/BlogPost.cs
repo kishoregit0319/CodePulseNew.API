@@ -1,7 +1,7 @@
 ﻿namespace CodePulse.API.Models.Domain
 {
 #nullable disable
-    public class BlogPostcs
+    public class BlogPost
     {
         public Guid  Id { get; set; }
         public string  Title { get; set; }
