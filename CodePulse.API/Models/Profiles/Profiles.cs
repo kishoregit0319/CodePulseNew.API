@@ -8,7 +8,7 @@ namespace CodePulse.API.Models.Profiles
     {
         public Profiles()
         {
-            //CreateMap<TraceSourceFactoryExtensions,TDestination> ()
+            //CreateMap<TSource,TDestination> ()
             CreateMap<CreateCategoryRequestDto, Category>().ReverseMap();
             CreateMap<Category,CategoryDto>().ReverseMap();
             
