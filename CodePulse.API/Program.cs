@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllers();
 var con = builder.Configuration.GetConnectionString("codepulseDb");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
