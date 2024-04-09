@@ -21,6 +21,7 @@ namespace CodePulse.API.Controllers
             this.mapper = mapper;
             this.CatRepo = CatRepo;
         }
+        //https://localhost:7142/api/Categories
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryRequestDto request)
         {
@@ -38,6 +39,16 @@ namespace CodePulse.API.Controllers
             var rsp = mapper.Map<CategoryDto>( await CatRepo.CreateAsync(catReq));
             
             return Ok(rsp);
+        }
+        // get: api/categories
+        // https://localhost:7142/api/Categories
+        [HttpGet]
+
+        public async Task<IActionResult> Categories()
+        {
+            var lstObj = await CatRepo.GetAllAsync();
+            var rsp = mapper.Map<IEnumerable<CategoryDto>>(lstObj);
+            return Ok(rsp); 
         }
     }
 }

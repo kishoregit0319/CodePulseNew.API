@@ -1,4 +1,6 @@
+using AutoMapper;
 using CodePulse.API.Data;
+using CodePulse.API.Models.Profiles;
 using CodePulse.API.Repositories.Implementation;
 using CodePulse.API.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddAutoMapper(typeof(Program));
+var config = new MapperConfiguration(option => option.AddProfile<Profiles>());
 builder.Services.AddControllers();
 var con = builder.Configuration.GetConnectionString("codepulseDb");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
